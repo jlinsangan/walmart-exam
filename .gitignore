@@ -1,0 +1,27 @@
+# directories
+node_modules/
+dist/
+build/
+coverage/
+logs/
+allure-report/
+allure-results/
+test-results/
+
+# secrets
+.env
+
+# logs
+*-error.log
+*-debug.log
+
+# misc
+.DS_Store
+.eslintcache
+package-lock.json
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+text.js
