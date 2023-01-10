@@ -89,4 +89,18 @@ test.describe.serial('WALMART EXAM AUTOMATION', () => {
     const pmHeader = await accountWallet.getPaymentMethodHeaderText()
     await expect(pmHeader).toContain('Add a payment method')
   })
+
+  test('Search item and Select addres', async ({ page }) => {
+    await page.goto(process.env.URL)
+    await expect(page).toHaveURL('https://www.walmart.com/')
+    await homePage.itemSearch('paper')
+    await resultsPage.selectFirstItem()
+    await page.locator('text="How do you want your items?"').first().click()
+    await page.locator('#intent-id1').click()
+    await page.locator('[data-automation-id="fulfillment-address"]').click()
+    await page.locator('[data-automation-id="store-zip-code"]').fill('95122')
+    await page.locator('.pt3.pb0.pl1').first().click()
+    await page.locator('[data-automation-id="save-label"]').click()
+    await homePage.itemSearch('paper')
+  })
 })
